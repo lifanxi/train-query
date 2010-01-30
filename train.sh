@@ -22,8 +22,8 @@ show()
  
         if [[ "$TTYPE" -eq "D" || "$TTYPE" -eq "C" || "$TTYPE" -eq "G" ]] ; then
             echo $RET | cut -d ',' -f 16 | tr "\n" "\t"
-            echo $RET | cut -d ',' -f 13 | tr  "\n" "\t"
             echo $RET | cut -d ',' -f 14 | tr  "\n" "\t"
+            echo $RET | cut -d ',' -f 13 | tr  "\n" "\t"
             echo $RET | cut -d ',' -f 11 | tr  "\n" "\t"
             echo $RET | cut -d ',' -f 12 | tr  "\n" "\t"
             echo $RET | cut -d ',' -f 15 | tr  "\n" "\t"
