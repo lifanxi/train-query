@@ -45,7 +45,7 @@ prompt()
     MON=${DATE:4:2}
     DAY=${DATE:6:2}
 
-    read -p "Command (npcstq):" COMMAND
+    read -p "Command (npcwstq):" COMMAND
     case $COMMAND in
         p)
             DATE=`date -d "$DATE -1day" "+%Y%m%d"`
@@ -62,6 +62,12 @@ prompt()
         t) 
             read -p "更改到站:" TO
             ;;
+        w)
+            TEMP=$TO
+            TO=$START
+            START=$TEMP
+            ;;
+
         q)
             exit 0
             ;;
