@@ -19,8 +19,7 @@ show()
         echo $RET | cut -d ',' -f 3 | cut -d "(" -f 1 | tr "\n" "\t"
         echo $RET | cut -d ',' -f 6 | tr "\n" "\t"
         echo $RET | cut -d ',' -f 7 | tr  "\n" "\t"
- 
-        if [[ "$TTYPE" -eq "D" || "$TTYPE" -eq "C" || "$TTYPE" -eq "G" ]] ; then
+        if [[ "$TTYPE" == "D" || "$TTYPE" == "C" || "$TTYPE" == "G" ]] ; then
             echo $RET | cut -d ',' -f 16 | tr "\n" "\t"
             echo $RET | cut -d ',' -f 14 | tr  "\n" "\t"
             echo $RET | cut -d ',' -f 13 | tr  "\n" "\t"
@@ -29,8 +28,8 @@ show()
             echo $RET | cut -d ',' -f 15 | tr  "\n" "\t"
         else
             echo $RET | cut -d ',' -f 16 | tr "\n" "\t"
-            echo $RET | cut -d ',' -f 9 | tr "\n" "\t"
-            echo $RET | cut -d ',' -f 10 | tr  "\n" "\t"
+            echo $RET | cut -d ',' -f 9 | tr "\n" "\t" | tr -d ' '
+            echo $RET | cut -d ',' -f 10 | tr  "\n" "\t" | tr -d ' '
             echo $RET | cut -d ',' -f 11 | tr  "\n" "\t"
             echo $RET | cut -d ',' -f 12 | tr  "\n" "\t"
             echo $RET | cut -d ',' -f 15 | tr  "\n" "\t"
