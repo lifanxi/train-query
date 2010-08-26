@@ -8,7 +8,7 @@ show()
     
     TMPFILE=/tmp/train.tmp
     echo > $TMPFILE
-    curl http://dynamic.12306.cn/TrainQuery/iframeLeftTicketByStation.jsp -d lx=00 -d nyear3=$YEAR -d nyear3_new_value=true -d nmonth3=$MON -d nmonthe3_new_value=true -d nday3=$DAY --data-urlencode startStation_ticketLeft=$START --data-urlencode arriveStation_ticketLeft=$TO -d nday3_new_value=true -d startStation_ticketLeft_new_value=true -d arriveStation_ticketLeft_new_value=true -d trainCode=$TRAINCODE -d trainCode_new_value=true -d rFlag=1 -d name_ckball=value_ckball -d tFlagT=T -d tFlagZ=Z -d tFlagDC=DC -d tFlagK=K -d tFlagPK=PK -d tFlagQT=QT -m 10 2>/dev/null | grep -v "//" | grep addRow > $TMPFILE
+    curl http://dynamic.12306.cn/TrainQuery/iframeLeftTicketByStation.jsp -A "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)" -e www.12306.cn -d lx=00 -d nyear3=$YEAR -d nyear3_new_value=true -d nmonth3=$MON -d nmonthe3_new_value=true -d nday3=$DAY --data-urlencode startStation_ticketLeft=$START --data-urlencode arriveStation_ticketLeft=$TO -d nday3_new_value=true -d startStation_ticketLeft_new_value=true -d arriveStation_ticketLeft_new_value=true -d trainCode=$TRAINCODE -d trainCode_new_value=true -d rFlag=1 -d name_ckball=value_ckball -d tFlagT=T -d tFlagZ=Z -d tFlagDC=DC -d tFlagK=K -d tFlagPK=PK -d tFlagQT=QT -m 10 2>/dev/null | grep -v "//" | grep addRow > $TMPFILE
     echo -ne $YEAR$MON$DAY $START "至" $TO "\n"
     echo -ne  "车次\t发点\t到点\t无座\t硬座\t软座\t硬卧\t软卧\t高级软卧\n" 
     while read myline
